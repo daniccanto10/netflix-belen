@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix - Belén ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="introNetflix">
+        <h1 class="logoIntro">NETFLIX</h1>
+    </div>
+
+    <div id="pantallaPerfiles">
+        <div class="logo">NETFLIX</div>
+        
+        <div id="contenedor-perfil-bloqueado">
+            <h1>¿Quién está viendo?</h1>
+            <div class="perfiles">
+                <div class="perfil" onclick="mostrarBloqueoPIN()">
+                    <img src="belen.jpeg" alt="Belén">
+                    <p>Belen ❤️</p>
+                    <span class="icono-candado">🔒</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="pantalla-pin" style="display: none;">
+            <div class="logo-contrasena-centrado">NETFLIX</div>
+            
+            <h1>Perfil protegido</h1>
+            <p>Introduce la palabra clave para acceder al perfil de Belen.</p>
+            
+            <div class="bloque-password-texto">
+                <input type="password" id="input-password-texto" placeholder="Contraseña">
+                <button class="btn-ingresar-texto" onclick="validarContrasenaTexto()">Iniciar sesión</button>
+            </div>
+
+            <p id="mensaje-error-pin" style="color: #E50914; margin-top: 15px; font-weight: bold; visibility: hidden;">
+                Contraseña incorrecta. Inténtalo de nuevo.
+            </p>
+            
+            <button class="btn-cancelar-pin" onclick="cancelarPIN()">Regresar</button>
+        </div>
+        
+        <audio id="sonidoNetflix" src="tudum.mp3" preload="auto"></audio>
+    </div>
+
+    <div id="netflix" style="display:none;">
+        <header>
+            <div class="logo">NETFLIX</div>
+            <nav>
+                <a href="#" onclick="regresarAlInicio()">Inicio</a>
+                <a href="#">Series</a>
+                <a href="#">Películas</a>
+                <a href="#">Mi lista</a>
+            </nav>
+        </header>
+
+        <section class="banner">
+            <video autoplay muted loop id="videoFondo">
+                <source src="video3.mp4" type="video/mp4">
+            </video>
+            <div class="oscuro"></div>
+            <div class="contenido">
+                <h1>La chica de mis sueños❤️</h1>
+                <p>
+                    Trata de un chico enamorado que cuenta su vida amorosa con la chica de sus sueños.
+                    Cuenta todas las complicaciones y los planes con ella.
+                </p>
+                <div class="botones">
+                    <button class="btn-reproducir" onclick="abrirTemporadas()">
+                        ▶ Reproducir
+                    </button>
+                    <button class="btn-info">
+                        ❤️ Mi Favorita
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="seccion-fotos">
+            <h2>💕 Lo más hermoso</h2>
+            <div class="fila">
+                <img src="d5.jpeg"> <img src="d4.jpeg"> <img src="d3.jpeg"> <img src="belenbb.png"> <img src="d3.jpeg">
+            </div>
+        </section>
+
+        <section class="seccion-fotos">
+            <h2>🌹 El payasito enamorado</h2>
+            <div class="fila">
+                <img src="halck1.png"> <img src="halck2.png"> <img src="halck3.png"> <img src="halck4.png"> <img src="halck5.png">
+            </div>
+        </section>
+
+        <section class="seccion-letras">
+    <h2>Series Favoritas </h2>
+    <div class="fila">
+        <div class="tarjeta-letra-fija">
+            <span class="letra-netflix">B</span>
+            <div class="logo-esquina-tarjeta">N</div>
+        </div>
+
+        <div class="tarjeta-letra-fija">
+            <span class="letra-netflix">E</span>
+            <div class="logo-esquina-tarjeta">N</div>
+        </div>
+
+        <div class="tarjeta-letra-fija">
+            <span class="letra-netflix">L</span>
+            <div class="logo-esquina-tarjeta">N</div>
+        </div>
+
+        <div class="tarjeta-letra-fija">
+            <span class="letra-netflix">E</span>
+            <div class="logo-esquina-tarjeta">N</div>
+        </div>
+
+        <div class="tarjeta-letra-fija">
+            <span class="letra-netflix">N</span>
+            <div class="logo-esquina-tarjeta">N</div>
+        </div>
+    </div>
+</section>
+    </div> <div id="pantallaTemporadas" style="display: none;">
+        
+        <div class="barra-superior-temporadas">
+            <h1 class="titulo-seccion">La chica de mis sueños ❤️</h1>
+            <button class="btn-volver" onclick="regresarAlInicio()">❌ Salir</button>
+        </div>
+
+        <div class="contenedorTemporadas">
+            <div class="listaTemporadas">
+                <div class="temporada">
+                    <h2>Temporada 1 ❤️</h2>
+                    <p>La historia del payasito que se enamoró de la chica más hermosa.</p>
+                    <button onclick="verTemporada1()">▶ Ver</button>
+                </div>
+                <div class="temporada">
+                    <h2>Temporada 2 💕</h2>
+                    <p>Muy pronto...</p>
+                </div>
+                <div class="temporada">
+                    <h2>Temporada 3 💕</h2>
+                    <p>Muy pronto...</p>
+                </div>
+            </div>
+
+            <div class="resumenVideo">
+                <video autoplay muted loop id="previewVideo">
+                    <source src="belenamor.mp4" type="video/mp4">
+                </video>
+                
+                <div class="info-resumen-abajo">
+                    <h2 id="tituloTemporadaActual">Temporada 1 ❤️</h2>
+                    <p id="descripcionTemporadaActual">El comienzo de una hermosa historia llena de amor, sonrisas y sueños.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="pantallaVideoCompleto" style="display: none;">
+        <button class="btn-cerrar-video" onclick="regresarATemporadas()">⬅ Volver a las Temporadas</button>
+        <video id="videoCompleto" controls>
+            <source src="belenamor.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <audio id="tudum">
+        <source src="tudum.mp3" type="audio/mp3">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
